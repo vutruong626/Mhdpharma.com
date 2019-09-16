@@ -1,0 +1,33 @@
+    RewriteEngine On
+
+    RewriteRule ^dich-vu/chia-se-nguon-luc.html https://mhdpharma.com/dich-vu [L,R=301,NE]
+    RewriteRule ^dich-vu/phat-trien-thuong-hieu-san-pham.html https://mhdpharma.com/dich-vu#phat-trien-thuong-hieu-san-pham [L,R=301,NE]
+    RewriteRule ^dich-vu/thuong-mai-hoa-san-pham.html https://mhdpharma.com/dich-vu#thuong-mai-hoa-san-pham [L,R=301,NE]
+
+    RewriteRule ^doi-ngu-quan-ly/ https://mhdpharma.com/gioi-thieu#doi-ngu-quan-ly [L,R=301,NE]
+
+    RewriteRule ^gioi-thieu/hoat-dong-cong-dong.html https://mhdpharma.com/gioi-thieu#doi-ngu-quan-ly [L,R=301,NE]
+    RewriteRule ^dich-vu/giai-phap-phu-hop.html https://mhdpharma.com/dich-vu#giai-phap-phu-hop [L,R=301,NE]
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    
+</IfModule>
